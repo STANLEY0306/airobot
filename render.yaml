@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: airobot
+    runtime: php
+    buildCommand: ""
+    startCommand: php -S 0.0.0.0:$PORT -t .
+    plan: free
