@@ -1,0 +1,2228 @@
+
+
+/* ===== 全站重置與變數 ===== */
+
+:root {
+
+    /* 主要色彩 - 寺廟建築色系 */
+
+    --temple-dark: #5d4037;      /* 深木色 - 寺廟樑柱 */
+
+    --temple-wood: #8d6e63;      /* 木質色 - 古老木材 */
+
+    --temple-red: #c62828;       /* 硃砂紅 - 寺廟紅牆 */
+
+    --temple-dark-red: #8b0000;  /* 深紅色 - 傳統喜氣 */
+
+   
+
+    /* 金屬與裝飾色 */
+
+    --antique-gold: #b8860b;     /* 古金色 - 褪色金箔 */
+
+    --bronze: #cd7f32;           /* 青銅色 - 香爐銅綠 */
+
+    --aged-brass: #b5a642;       /* 古銅色 - 歲月痕跡 */
+
+   
+
+    /* 紙張與文字色 */
+
+    --aged-paper: #f5e8c8;       /* 古紙色 - 泛黃紙張 */
+
+    --ink-black: #2c1810;        /* 墨黑色 - 傳統墨色 */
+
+    --scroll-beige: #e8d8b5;     /* 卷軸色 - 宣紙質感 */
+
+   
+
+    /* 陰影與效果 */
+
+    --deep-shadow: 0 4px 12px rgba(0,0,0,0.6);
+
+    --glow-shadow: 0 0 15px rgba(183, 134, 11, 0.4);
+
+    --transition: all 0.4s ease;
+
+}
+
+
+
+* {
+
+    margin: 0;
+
+    padding: 0;
+
+    box-sizing: border-box;
+
+    font-family: "標楷體", "新細明體", "SimSun", serif;
+
+}
+
+
+
+/* ===== Body 背景 - 寺廟氛圍 ===== */
+
+body {
+
+    background:
+
+        linear-gradient(135deg, rgba(93, 64, 55, 0.8) 0%, rgba(198, 40, 40, 0.6) 100%),
+
+        url('../images/scripture-texture.jpg');
+
+    background-size: cover;
+
+    background-attachment: fixed;
+
+    color: var(--aged-paper);
+
+    line-height: 1.6;
+
+    min-height: 100vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    position: relative;
+
+}
+
+
+
+body::before {
+
+    content: "";
+
+    position: fixed;
+
+    top: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    background:
+
+        radial-gradient(circle at 20% 30%, rgba(183, 134, 11, 0.15) 0%, transparent 50%),
+
+        radial-gradient(circle at 80% 70%, rgba(198, 40, 40, 0.2) 0%, transparent 50%);
+
+    pointer-events: none;
+
+    z-index: -1;
+
+}
+
+
+
+/* ===== Navbar - 寺廟門楣風格 ===== */
+
+.navbar {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    background:
+
+        linear-gradient(45deg, var(--temple-red), var(--temple-dark-red));
+
+    padding: 12px 40px;
+
+    border-radius: 0 0 20px 20px;
+
+    box-shadow: var(--deep-shadow);
+
+    flex-wrap: wrap;
+
+    border-bottom: 4px solid var(--antique-gold);
+
+    position: relative;
+
+    overflow: hidden;
+
+}
+
+
+
+.navbar::before {
+
+    content: "佛光普照 有求必應";
+
+    position: absolute;
+
+    top: 50%;
+
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    font-size: 48px;
+
+    color: rgba(183, 134, 11, 0.08);
+
+    white-space: nowrap;
+
+    pointer-events: none;
+
+    z-index: 0;
+
+    font-weight: bold;
+
+    letter-spacing: 8px;
+
+}
+
+
+
+.navbar a {
+
+    text-decoration: none;
+
+    color: var(--aged-paper);
+
+    font-weight: bold;
+
+    margin: 0 12px;
+
+    transition: var(--transition);
+
+    padding: 8px 16px;
+
+    border-radius: 4px;
+
+    position: relative;
+
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+
+    z-index: 1;
+
+    font-size: 16px;
+
+}
+
+
+
+.navbar a:hover {
+
+    color: var(--antique-gold);
+
+    background: rgba(183, 134, 11, 0.15);
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+
+}
+
+
+
+.nav-left, .nav-right {
+
+    display: flex;
+
+    align-items: center;
+
+    z-index: 1;
+
+}
+
+
+
+.site-title {
+
+    font-size: 22px;
+
+    font-weight: bold;
+
+    color: var(--antique-gold);
+
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+
+    margin-right: 30px;
+
+    position: relative;
+
+}
+
+
+
+.site-title::before {
+
+    content: "🛕";
+
+    margin-right: 10px;
+
+    font-size: 24px;
+
+    filter: grayscale(0.3) brightness(1.2);
+
+}
+
+
+
+.nav-right span {
+
+    margin-right: 15px;
+
+    font-weight: bold;
+
+    color: var(--antique-gold);
+
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+
+    font-size: 14px;
+
+}
+
+
+
+.btn-nav {
+
+    background: linear-gradient(45deg, var(--temple-red), var(--antique-gold));
+
+    padding: 8px 18px;
+
+    border-radius: 6px;
+
+    box-shadow: 0 3px 8px rgba(0,0,0,0.4);
+
+    margin-left: 12px;
+
+    color: var(--aged-paper);
+
+    font-weight: bold;
+
+    transition: var(--transition);
+
+    text-decoration: none;
+
+    border: 1px solid var(--antique-gold);
+
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+
+    font-size: 14px;
+
+}
+
+
+
+.btn-nav:hover {
+
+    transform: translateY(-2px);
+
+    background: linear-gradient(45deg, var(--antique-gold), var(--temple-red));
+
+    box-shadow: var(--glow-shadow);
+
+    color: var(--aged-paper);
+
+}
+
+.history-card {
+
+    background: linear-gradient(135deg, #f9f0e3, #fff8e1);
+
+    border: 2px solid #b87333;
+
+    border-radius: 8px;
+
+    padding: 20px;
+
+    margin-bottom: 20px;
+
+}
+
+
+
+.history-card h3 {
+
+    color: #8b0000;
+
+    margin-bottom: 10px;
+
+}
+
+
+
+.pagination {
+
+    margin-top: 20px;
+
+    text-align: center;
+
+}
+
+
+
+.pagination .btn,
+
+.pagination .current-page {
+
+    display: inline-block;
+
+    margin: 0 5px;
+
+    padding: 6px 12px;
+
+    border-radius: 5px;
+
+    border: 1px solid #b87333;
+
+    text-decoration: none;
+
+    color: #8b0000;
+
+}
+
+
+
+.pagination .current-page {
+
+    background-color: #b87333;
+
+    color: #fff;
+
+    pointer-events: none;
+
+}
+
+
+
+
+
+
+
+/* ===== 通用內容區域 - 經書卷軸風格 ===== */
+
+section {
+
+    max-width: 900px;
+
+    margin: 40px auto;
+
+    padding: 35px;
+
+    background:
+
+        url('../images/scripture-texture.jpg'),
+
+        linear-gradient(135deg, rgba(93, 64, 55, 0.9), rgba(141, 110, 99, 0.85));
+
+    background-size: cover;
+
+    background-blend-mode: overlay;
+
+    border-radius: 8px;
+
+    box-shadow:
+
+        var(--deep-shadow),
+
+        inset 0 0 0 1px var(--antique-gold),
+
+        inset 0 0 30px rgba(183, 134, 11, 0.2);
+
+    text-align: center;
+
+    flex: 1;
+
+    position: relative;
+
+    border: 2px solid var(--antique-gold);
+
+    border-left: 8px solid var(--temple-red);
+
+    border-right: 8px solid var(--temple-red);
+
+}
+
+
+
+section::before, section::after {
+
+    position: absolute;
+
+    font-size: 20px;
+
+    color: rgba(183, 134, 11, 0.4);
+
+    font-family: "標楷體";
+
+    font-weight: bold;
+
+}
+
+
+
+section::before {
+
+    content: "卍";
+
+    top: 15px;
+
+    right: 20px;
+
+}
+
+
+
+section::after {
+
+    content: "卍";
+
+    bottom: 15px;
+
+    left: 20px;
+
+    transform: rotate(180deg);
+
+}
+
+
+
+/* ===== 標題 - 金字匾額風格 ===== */
+
+h1, h2, h3 {
+
+    color: var(--antique-gold);
+
+    margin-bottom: 20px;
+
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+
+    position: relative;
+
+    display: inline-block;
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
+
+}
+
+
+
+h1::after, h2::after, h3::after {
+
+    content: "";
+
+    position: absolute;
+
+    bottom: -8px;
+
+    left: 10%;
+
+    width: 80%;
+
+    height: 2px;
+
+    background: linear-gradient(90deg, transparent, var(--antique-gold), transparent);
+
+    box-shadow: 0 2px 4px rgba(183, 134, 11, 0.3);
+
+}
+
+
+
+/* ===== 按鈕 - 香爐按鈕風格 ===== */
+
+.btn {
+
+    padding: 14px 32px 14px 50px;
+
+    font-size: 16px;
+
+    border-radius: 6px;
+
+    border: none;
+
+    background:
+
+        url('../images/lottery-tube.png') no-repeat 15px center,
+
+        linear-gradient(45deg, var(--temple-red), var(--bronze));
+
+    background-size: 24px 24px, auto;
+
+    color: var(--aged-paper);
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: var(--transition);
+
+    margin: 10px;
+
+    box-shadow:
+
+        0 4px 12px rgba(0,0,0,0.4),
+
+        inset 0 1px 0 rgba(255,255,255,0.2);
+
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+
+    position: relative;
+
+    overflow: hidden;
+
+    border: 1px solid var(--aged-brass);
+
+    text-decoration: none;
+
+    display: inline-block;
+
+    font-family: "標楷體";
+
+}
+
+
+
+.btn:hover {
+
+    transform: translateY(-3px);
+
+    background:
+
+        url('../images/lottery-tube.png') no-repeat 15px center,
+
+        linear-gradient(45deg, var(--bronze), var(--temple-red));
+
+    background-size: 24px 24px, auto;
+
+    box-shadow:
+
+        var(--glow-shadow),
+
+        inset 0 1px 0 rgba(255,255,255,0.3);
+
+    color: var(--aged-paper);
+
+}
+
+
+
+.btn-primary {
+
+    background:
+
+        url('../images/lottery-tube.png') no-repeat 15px center,
+
+        linear-gradient(45deg, var(--antique-gold), var(--temple-red));
+
+    background-size: 24px 24px, auto;
+
+    border: 1px solid var(--antique-gold);
+
+}
+
+
+
+/* ===== 首頁專用樣式 ===== */
+
+.home-buttons {
+
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    align-items: center;
+
+    margin-bottom: 40px;
+
+}
+
+
+
+.welcome-msg {
+
+    font-weight: bold;
+
+    color: var(--antique-gold);
+
+    font-size: 18px;
+
+    margin-bottom: 25px;
+
+    padding: 12px 20px;
+
+    background: rgba(183, 134, 11, 0.1);
+
+    border-radius: 6px;
+
+    display: inline-block;
+
+    border: 1px solid var(--antique-gold);
+
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+
+}
+
+
+
+.features {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    flex-wrap: wrap;
+
+    gap: 15px;
+
+    margin-top: 35px;
+
+}
+
+
+
+.feature-card {
+
+    flex: 1;
+
+    min-width: 250px;
+
+    background:
+
+        url('../images/scripture-texture.jpg'),
+
+        linear-gradient(135deg, var(--scroll-beige), var(--aged-paper));
+
+    background-size: cover;
+
+    background-blend-mode: overlay;
+
+    padding: 25px 20px;
+
+    border-radius: 8px;
+
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+
+    text-align: center;
+
+    transition: var(--transition);
+
+    border: 2px solid var(--temple-wood);
+
+    color: var(--ink-black);
+
+    position: relative;
+
+    overflow: hidden;
+
+}
+
+
+
+.feature-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    left: 0;
+
+    right: 0;
+
+    height: 4px;
+
+    background: linear-gradient(90deg, var(--temple-red), var(--antique-gold));
+
+}
+
+
+
+.feature-card:hover {
+
+    transform: translateY(-5px);
+
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+
+}
+
+
+
+.feature-icon {
+
+    font-size: 42px;
+
+    margin-bottom: 15px;
+
+    filter: grayscale(0.3) brightness(0.9);
+
+}
+
+
+
+.feature-card h3 {
+
+    color: var(--temple-dark-red);
+
+    margin-bottom: 12px;
+
+    font-size: 20px;
+
+}
+
+
+
+.feature-card p {
+
+    color: var(--ink-black);
+
+    font-size: 14px;
+
+    margin-bottom: 0;
+
+    line-height: 1.6;
+
+}
+
+
+
+/* ===== 抽籤結果卡片 - 籤詩紙條風格 ===== */
+
+.result-card {
+
+    margin-top: 25px;
+
+    padding: 25px;
+
+    border-radius: 6px;
+
+    background:
+
+        url('../images/scripture-texture.jpg'),
+
+        linear-gradient(135deg, var(--scroll-beige), var(--aged-paper));
+
+    background-size: cover;
+
+    background-blend-mode: overlay;
+
+    border: 3px double var(--temple-dark-red);
+
+    box-shadow:
+
+        0 6px 20px rgba(0,0,0,0.5),
+
+        inset 0 0 20px rgba(139, 0, 0, 0.1);
+
+    text-align: left;
+
+    animation: fadeIn 0.8s ease-in-out;
+
+    position: relative;
+
+    color: var(--ink-black);
+
+    border-left: 8px solid var(--temple-red);
+
+}
+
+
+
+.result-card::before {
+
+    content: "籤";
+
+    position: absolute;
+
+    top: 15px;
+
+    right: 20px;
+
+    font-size: 24px;
+
+    color: rgba(139, 0, 0, 0.2);
+
+    font-family: "標楷體";
+
+    font-weight: bold;
+
+}
+
+
+
+.result-card h3 {
+
+    text-align: center;
+
+    font-size: 22px;
+
+    margin-bottom: 18px;
+
+    color: var(--temple-dark-red);
+
+    text-shadow: 1px 1px 2px rgba(205, 127, 50, 0.3);
+
+    border-bottom: 2px solid var(--bronze);
+
+    padding-bottom: 8px;
+
+}
+
+
+
+.result-card ul {
+
+    list-style: none;
+
+    padding-left: 0;
+
+}
+
+
+
+.result-card li {
+
+    font-size: 15px;
+
+    margin-bottom: 10px;
+
+    padding: 6px 0;
+
+    border-bottom: 1px solid rgba(139, 0, 0, 0.15);
+
+    position: relative;
+
+    padding-left: 22px;
+
+}
+
+
+
+.result-card li::before {
+
+    content: "•";
+
+    color: var(--temple-dark-red);
+
+    font-weight: bold;
+
+    font-size: 18px;
+
+    position: absolute;
+
+    left: 5px;
+
+    top: 4px;
+
+}
+
+
+
+.result-card li:last-child {
+
+    border-bottom: none;
+
+}
+
+
+
+/* ===== 擲筊動畫容器 - 佛龕風格 ===== */
+
+#shake-container {
+
+    margin-top: 25px;
+
+    text-align: center;
+
+    min-height: 180px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: rgba(93, 64, 55, 0.3);
+
+    border-radius: 8px;
+
+    border: 2px dashed var(--bronze);
+
+    padding: 20px;
+
+    position: relative;
+
+}
+
+
+
+#shake-container::before {
+
+    content: "擲筊問卜";
+
+    position: absolute;
+
+    top: -12px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    background: var(--temple-red);
+
+    color: var(--antique-gold);
+
+    padding: 4px 12px;
+
+    border-radius: 4px;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    border: 1px solid var(--antique-gold);
+
+}
+
+
+
+#shake-container img {
+
+    width: 100px;
+
+    height: 100px;
+
+    margin-top: 15px;
+
+    filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.6)) sepia(0.3);
+
+    border-radius: 8px;
+
+}
+
+
+
+/* ===== 登出頁面專用 ===== */
+
+.logout-container {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    min-height: 80vh;
+
+    padding: 20px;
+
+}
+
+
+
+.logout-card {
+
+    background:
+
+        url('../images/scripture-texture.jpg'),
+
+        linear-gradient(135deg, rgba(93, 64, 55, 0.95), rgba(141, 110, 99, 0.9));
+
+    background-size: cover;
+
+    background-blend-mode: overlay;
+
+    padding: 40px 50px;
+
+    border-radius: 12px;
+
+    text-align: center;
+
+    box-shadow:
+
+        var(--deep-shadow),
+
+        inset 0 0 0 2px var(--antique-gold),
+
+        inset 0 0 30px rgba(183, 134, 11, 0.2);
+
+    border: 2px solid var(--antique-gold);
+
+    position: relative;
+
+    max-width: 450px;
+
+    width: 100%;
+
+    border-left: 6px solid var(--temple-red);
+
+    border-right: 6px solid var(--temple-red);
+
+}
+
+
+
+.logout-card::before {
+
+    content: "🙏";
+
+    position: absolute;
+
+    top: 15px;
+
+    right: 20px;
+
+    font-size: 20px;
+
+    color: rgba(183, 134, 11, 0.4);
+
+}
+
+
+
+.logout-card::after {
+
+    content: "🙏";
+
+    position: absolute;
+
+    bottom: 15px;
+
+    left: 20px;
+
+    font-size: 20px;
+
+    color: rgba(183, 134, 11, 0.4);
+
+}
+
+
+
+/* ===== 關於我們頁面 ===== */
+
+.about-content {
+
+    text-align: left;
+
+}
+
+
+
+.about-content h3 {
+
+    margin-top: 25px;
+
+    margin-bottom: 12px;
+
+    color: var(--antique-gold);
+
+    border-left: 4px solid var(--temple-red);
+
+    padding-left: 12px;
+
+}
+
+
+
+.about-content p {
+
+    margin-bottom: 18px;
+
+    line-height: 1.7;
+
+    text-align: justify;
+
+    color: var(--aged-paper);
+
+    font-size: 15px;
+
+}
+
+
+
+/* ===== Footer - 寺廟門檻風格 ===== */
+
+footer {
+
+    background: linear-gradient(45deg, var(--temple-dark), var(--temple-red));
+
+    text-align: center;
+
+    padding: 20px 0;
+
+    font-weight: bold;
+
+    color: var(--antique-gold);
+
+    border-radius: 20px 20px 0 0;
+
+    position: relative;
+
+    margin-top: auto;
+
+    border-top: 4px solid var(--antique-gold);
+
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+
+    font-size: 14px;
+
+}
+
+
+
+
+
+
+
+/* ===== 動畫 ===== */
+
+@keyframes fadeIn {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(20px) scale(0.95);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0) scale(1);
+
+    }
+
+}
+
+
+
+@keyframes incenseSmoke {
+
+    0% {
+
+        transform: translateY(0) scale(1);
+
+        opacity: 0.5;
+
+    }
+
+    50% {
+
+        transform: translateY(-20px) scale(1.2);
+
+        opacity: 0.8;
+
+    }
+
+    100% {
+
+        transform: translateY(-40px) scale(1.5);
+
+        opacity: 0;
+
+    }
+
+}
+
+
+
+.incense-effect::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: -20px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 3px;
+
+    height: 40px;
+
+    background: linear-gradient(to top, rgba(183, 134, 11, 0.6), transparent);
+
+    animation: incenseSmoke 3s ease-in-out infinite;
+
+}
+
+
+
+/* ===== 響應式設計 ===== */
+
+@media (max-width: 768px) {
+
+    .navbar {
+
+        flex-direction: column;
+
+        text-align: center;
+
+        padding: 10px 20px;
+
+    }
+
+   
+
+    .navbar::before {
+
+        font-size: 32px;
+
+        letter-spacing: 4px;
+
+    }
+
+   
+
+    .navbar a {
+
+        margin: 6px 0;
+
+        display: block;
+
+        width: 100%;
+
+        font-size: 15px;
+
+    }
+
+   
+
+    .site-title {
+
+        margin-right: 0;
+
+        margin-bottom: 12px;
+
+        font-size: 18px;
+
+    }
+
+   
+
+    .btn-nav {
+
+        margin-left: 0;
+
+        margin-top: 8px;
+
+        width: 100%;
+
+        font-size: 13px;
+
+    }
+
+   
+
+    .nav-right span {
+
+        margin-right: 0;
+
+        margin-bottom: 8px;
+
+        font-size: 13px;
+
+    }
+
+   
+
+    section {
+
+        margin: 20px;
+
+        padding: 25px 20px;
+
+    }
+
+   
+
+    .logout-card {
+
+        padding: 30px 25px;
+
+        margin: 20px;
+
+    }
+
+   
+
+    .btn {
+
+        padding: 12px 25px 12px 45px;
+
+        font-size: 14px;
+
+        margin: 8px;
+
+        background-size: 20px 20px, auto;
+
+    }
+
+   
+
+    .result-card {
+
+        padding: 20px;
+
+        margin: 20px 10px;
+
+    }
+
+   
+
+    .result-card h3 {
+
+        font-size: 20px;
+
+    }
+
+   
+
+    #shake-container img {
+
+        width: 80px;
+
+        height: 80px;
+
+    }
+
+   
+
+    .features {
+
+        flex-direction: column;
+
+    }
+
+   
+
+    .feature-card {
+
+        min-width: 100%;
+
+    }
+
+   
+
+    .home-buttons {
+
+        flex-direction: column;
+
+    }
+
+   
+
+    .home-buttons .btn {
+
+        width: 100%;
+
+    }
+
+}
+
+
+
+@media (max-width: 480px) {
+
+    section {
+
+        padding: 20px 15px;
+
+        margin: 15px 10px;
+
+    }
+
+   
+
+    .logout-card {
+
+        padding: 25px 20px;
+
+    }
+
+   
+
+    .btn {
+
+        padding: 10px 20px 10px 40px;
+
+        font-size: 13px;
+
+        background-size: 18px 18px, auto;
+
+    }
+}
+/* 確保整個抽籤區域置中且具備黃金比例 */
+.draw-container {
+    max-width: 1300px; /* 限制最大寬度防止拉太寬 */
+    margin: 40px auto; /* 核心：水平置中 */
+    padding: 0 20px;
+}
+
+.flex-layout {
+    display: flex;
+    gap: 30px; /* 兩欄間距 */
+    align-items: stretch; /* 確保左右兩邊高度等長，視覺才平衡 */
+    justify-content: center;
+}
+
+/* 左側：靈籤主體 (約 65%) */
+.lottery-main-section {
+    flex: 6.5;
+    margin: 0 !important; /* 蓋掉原本 section 的 auto margin 避免跑位 */
+    background-color: var(--scroll-beige) !important;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* 內容垂直置中 */
+}
+
+/* 右側：AI 側欄 (約 35%) */
+.ai-sidebar-aside {
+    flex: 3.5;
+    background: rgba(93, 64, 55, 0.95); /* 深木色背景 */
+    border: 2px solid var(--antique-gold);
+    border-radius: 8px;
+    padding: 35px;
+    box-shadow: var(--deep-shadow);
+    display: flex;
+    flex-direction: column;
+}
+.history-wrapper {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+/* 標題 */
+.history-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--temple-dark-red);
+    margin-bottom: 30px;
+}
+
+/* 每一張籤 */
+.history-scroll {
+    background: url('images/scripture-texture.jpg') repeat;
+    border: 2px solid var(--antique-gold);
+    border-left: 10px solid var(--temple-red);
+    border-right: 10px solid var(--temple-red);
+
+    padding: 30px;
+    margin-bottom: 30px;
+
+    box-shadow: var(--deep-shadow);
+}
+
+/* 籤標題 */
+.poem-title {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+
+    background: linear-gradient(45deg, #b8860b, #ffd700);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* 吉凶 */
+.fortune-badge {
+    text-align: center;
+    font-size: 1.5rem;
+    color: var(--temple-dark-red);
+    margin-bottom: 15px;
+}
+
+/* 籤詩框 */
+.poem-frame {
+    border: 4px double var(--temple-dark-red);
+    padding: 20px;
+    margin: 20px 0;
+    background: rgba(255,255,255,0.3);
+}
+
+/* 籤詩文字 */
+.poem-text {
+    font-size: 1.8rem;
+    font-family: "標楷體";
+    text-align: center;
+    line-height: 1.6;
+}
+
+/* 解籤 */
+.interpretation-box {
+    background: rgba(0,0,0,0.05);
+    padding: 15px;
+    border-left: 4px solid var(--antique-gold);
+    margin-top: 15px;
+}
+
+/* 底部資訊 */
+.history-meta {
+    margin-top: 15px;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+/* 分頁 */
+.pagination {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.pagination a {
+    padding: 6px 12px;
+    margin: 3px;
+    background: #eee;
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+.pagination a.active {
+    background: #b7860b;
+    color: white;
+}
+/* ===== draw.php 抽籤頁面專用樣式 - 溫暖寺廟風格 ===== */
+
+/* 抽籤前選擇區容器 */
+.draw-select-section {
+    max-width: 1100px;
+    margin: 50px auto;
+    padding: 0 20px;
+}
+
+/* 抽籤卡片 - 溫暖木色 + 舊紙張橫紋 */
+.draw-select-card {
+    background: #c49a6c;
+    background-image: linear-gradient(0deg, rgba(160, 100, 50, 0.12) 1px, transparent 1px);
+    background-size: 100% 5px;
+    border: 1px solid #e8c87a;
+    border-radius: 28px;
+    padding: 45px 40px;
+    text-align: center;
+    box-shadow: 0 25px 40px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.2);
+    position: relative;
+}
+
+.draw-select-card::before {
+    content: "";
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    border: 1px solid rgba(232, 200, 122, 0.45);
+    border-radius: 20px;
+    pointer-events: none;
+}
+
+.draw-select-card .incense-left {
+    position: absolute;
+    bottom: 12px;
+    left: 20px;
+    font-size: 28px;
+    opacity: 0.3;
+}
+
+.draw-select-card .incense-right {
+    position: absolute;
+    bottom: 12px;
+    right: 20px;
+    font-size: 28px;
+    opacity: 0.3;
+}
+
+.draw-select-card h1 {
+    font-size: 2rem;
+    color: #3a2212;
+    margin-bottom: 12px;
+    letter-spacing: 8px;
+    font-weight: normal;
+    text-shadow: 1px 1px 0 rgba(255,255,255,0.2);
+}
+
+.draw-select-card > p {
+    color: #4a2a18;
+    margin-bottom: 40px;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    font-weight: 500;
+}
+
+/* 神明選擇容器 */
+.god-selector-container {
+    display: flex;
+    justify-content: center;
+    gap: 45px;
+    margin: 30px 0 40px;
+    flex-wrap: wrap;
+}
+
+.god-option {
+    cursor: pointer;
+    width: 210px;
+    text-align: center;
+    transition: all 0.35s ease;
+}
+
+.god-option:hover {
+    transform: translateY(-8px);
+}
+
+/* 神龕造型 - 屋頂 + 紅色襯布 */
+.god-img-wrapper {
+    width: 100%;
+    height: 240px;
+    background: #f5e6c8;
+    border: 5px solid #8b5a2b;
+    border-radius: 18px 18px 12px 12px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: inset 0 0 0 2px #e8c87a, 0 12px 22px rgba(0,0,0,0.28);
+}
+
+/* 神龕屋頂裝飾 */
+.god-img-wrapper::before {
+    content: "▲";
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 20px;
+    color: #8b5a2b;
+    text-shadow: 0 1px 0 #e8c87a;
+    letter-spacing: 4px;
+}
+
+/* 紅色襯布（簾幕效果） */
+.god-img-wrapper::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 50px;
+    background: linear-gradient(to top, rgba(139, 60, 42, 0.35), transparent);
+    pointer-events: none;
+}
+
+.god-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: contrast(1.03) saturate(0.92);
+}
+
+/* 選中效果 - 點燈感 */
+.god-option.selected .god-img-wrapper {
+    border-color: #e8c87a;
+    box-shadow: 0 0 0 3px #e8c87a, 0 0 20px rgba(232, 200, 122, 0.5), 0 12px 22px rgba(0,0,0,0.3);
+}
+
+.god-option.selected .god-img-wrapper::before {
+    color: #e8c87a;
+    text-shadow: 0 0 8px #e8c87a;
+}
+
+.god-option span {
+    display: block;
+    margin-top: 18px;
+    color: #3a2212;
+    font-weight: bold;
+    font-size: 1.15rem;
+    letter-spacing: 3px;
+    text-shadow: 1px 1px 0 rgba(255,255,255,0.2);
+}
+
+.god-option small {
+    display: block;
+    color: #5a3a22;
+    font-size: 0.7rem;
+    margin-top: 6px;
+    letter-spacing: 1px;
+}
+
+/* 按鈕 - 深硃砂紅 + 古銅金邊 */
+.btn-ritual {
+    padding: 12px 35px;
+    border-radius: 50px;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    letter-spacing: 4px;
+    font-family: "標楷體", serif;
+    background: #8b3a2a;
+    color: #f0e6d0;
+    border: 1px solid #c9a03d;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+}
+
+.btn-ritual:hover {
+    background: #9e4a38;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.25);
+}
+
+/* 擲筊區 */
+#divination-area {
+    margin-top: 35px;
+}
+
+#shake-container {
+    background: rgba(58, 34, 18, 0.55);
+    border-radius: 28px;
+    padding: 35px;
+    border: 1px solid #e8c87a;
+}
+
+#statusTitle {
+    color: #3a2212;
+    margin-bottom: 22px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    letter-spacing: 3px;
+    text-shadow: 1px 1px 0 rgba(255,255,255,0.15);
+}
+
+#divination-result {
+    font-size: 1.7rem;
+    font-weight: bold;
+    color: #3a2212;
+    margin: 22px 0;
+}
+
+#draw-btn-container {
+    margin-top: 25px;
+}
+
+/* ===== 抽籤結果區 - 兩欄布局 ===== */
+.result-container {
+    width: 100%;
+    max-width: 1500px;
+    margin: 30px auto;
+    padding: 0 25px;
+}
+
+.result-layout {
+    display: flex;
+    gap: 35px;
+    align-items: flex-start;
+}
+
+/* 左側籤詩區 70% - 米白宣紙 + 細微紋理 */
+.lottery-area {
+    flex: 7;
+    background: #fef7e8;
+    background-image: radial-gradient(circle at 20% 35%, rgba(180, 140, 80, 0.05) 2%, transparent 2.5%);
+    background-size: 32px 32px;
+    border-radius: 20px;
+    padding: 40px 35px;
+    box-shadow: 0 18px 32px rgba(0,0,0,0.25);
+    position: relative;
+    border: 1px solid #d4b87a;
+}
+
+.lottery-area::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(0deg, rgba(140, 100, 50, 0.04) 0px, rgba(140, 100, 50, 0.04) 2px, transparent 2px, transparent 12px);
+    pointer-events: none;
+    border-radius: 20px;
+}
+
+.lottery-area::after {
+    content: "卍";
+    position: absolute;
+    bottom: 22px;
+    right: 28px;
+    font-size: 52px;
+    color: rgba(139, 89, 39, 0.06);
+    font-family: "標楷體";
+    transform: rotate(180deg);
+}
+
+.lottery-area .corner-tl {
+    position: absolute;
+    top: 22px;
+    left: 28px;
+    font-size: 52px;
+    color: rgba(139, 89, 39, 0.06);
+    font-family: "標楷體";
+}
+
+.poem-header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(139, 89, 39, 0.2);
+}
+
+.god-name-large {
+    font-size: 1.7rem;
+    color: #8b3a2a;
+    font-weight: normal;
+    letter-spacing: 4px;
+}
+
+.lottery-number {
+    font-size: 1.2rem;
+    color: #b8860b;
+    margin-left: 12px;
+}
+
+.fortune-badge {
+    display: inline-block;
+    padding: 5px 22px;
+    border-radius: 35px;
+    font-size: 1rem;
+    font-weight: normal;
+    margin-top: 12px;
+    color: #fef7e8;
+    letter-spacing: 2px;
+}
+
+.poem-frame-center {
+    max-width: 85%;
+    margin: 32px auto;
+    padding: 38px 32px;
+    background: rgba(255, 252, 242, 0.96);
+    border: 1px solid #c9a03d;
+    border-radius: 14px;
+    text-align: center;
+    position: relative;
+    box-shadow: inset 0 0 25px rgba(139, 69, 19, 0.03), 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.poem-text-large {
+    font-size: 1.7rem;
+    font-family: "標楷體", serif;
+    font-weight: 500;
+    color: #2c1a10;
+    line-height: 2;
+    letter-spacing: 2px;
+}
+
+.interpretation-card {
+    background: rgba(255, 252, 242, 0.96);
+    border-left: 6px solid #8b3a2a;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin: 28px 0;
+    max-height: 270px;
+    overflow-y: auto;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+}
+
+.interpretation-card h3 {
+    color: #8b3a2a;
+    margin-bottom: 14px;
+    font-size: 1.2rem;
+    font-weight: normal;
+    letter-spacing: 3px;
+}
+
+.interpretation-card p {
+    color: #2c1a10;
+    line-height: 1.8;
+    font-size: 0.93rem;
+}
+
+/* 自訂捲軸 */
+.interpretation-card::-webkit-scrollbar,
+.ai-area::-webkit-scrollbar {
+    width: 4px;
+}
+.interpretation-card::-webkit-scrollbar-track,
+.ai-area::-webkit-scrollbar-track {
+    background: rgba(139, 69, 19, 0.1);
+    border-radius: 3px;
+}
+.interpretation-card::-webkit-scrollbar-thumb,
+.ai-area::-webkit-scrollbar-thumb {
+    background: #b8860b;
+    border-radius: 3px;
+}
+
+.action-buttons-bottom {
+    display: flex;
+    justify-content: center;
+    gap: 22px;
+    margin-top: 22px;
+    padding-top: 22px;
+    border-top: 1px solid rgba(139, 89, 39, 0.2);
+}
+
+.btn-reset {
+    background: #5a3a28;
+    color: #e8d8b0;
+    border: 1px solid #b8860b;
+}
+
+.btn-history {
+    background: #3a2518;
+    color: #e8d8b0;
+    border: 1px solid #b8860b;
+}
+
+/* ===== 右側 AI 區 30% - 調亮版本 ===== */
+.ai-area {
+    flex: 3;
+    background: rgba(50, 35, 25, 0.92);
+    border-radius: 20px;
+    padding: 30px 25px;
+    border: 1px solid #c9a03d;
+    position: sticky;
+    top: 20px;
+    max-height: calc(100vh - 40px);
+    overflow-y: auto;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.ai-title {
+    text-align: center;
+    font-size: 1.3rem;
+    color: #e8c87a;
+    margin-bottom: 22px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(201, 160, 61, 0.4);
+    letter-spacing: 4px;
+    font-weight: normal;
+}
+
+/* 神明小卡 - 調亮 */
+.god-mini-card {
+    background: rgba(70, 50, 35, 0.7);
+    border-radius: 14px;
+    padding: 14px 16px;
+    margin-bottom: 22px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    border: 1px solid rgba(201, 160, 61, 0.45);
+}
+
+.god-mini-icon {
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 1px solid #c9a03d;
+}
+
+.god-mini-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.god-mini-info h4 {
+    color: #e8c87a;
+    font-size: 1rem;
+    margin-bottom: 5px;
+    font-weight: normal;
+}
+
+.god-mini-info p {
+    color: #d4c5a9;
+    font-size: 0.75rem;
+}
+
+/* 快速提問按鈕 */
+.quick-query-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.quick-q-btn {
+    background: rgba(201, 160, 61, 0.2);
+    border: 1px solid #c9a03d;
+    padding: 7px 16px;
+    border-radius: 40px;
+    color: #f0e6d0;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    letter-spacing: 1px;
+}
+
+.quick-q-btn:hover {
+    background: #c9a03d;
+    color: #2c1a10;
+}
+
+/* 輸入區 - 調亮背景 */
+.ai-input-group {
+    margin: 20px 0;
+}
+
+.ai-input-group label {
+    display: block;
+    color: #e8c87a;
+    margin-bottom: 8px;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+}
+
+.ai-textarea {
+    width: 100%;
+    padding: 14px 16px;
+    background: #f5ecd8;
+    border: 1px solid #b8860b;
+    border-radius: 12px;
+    font-family: "標楷體", serif;
+    font-size: 0.85rem;
+    resize: vertical;
+    color: #2c1a10;
+}
+
+.ai-textarea:focus {
+    outline: none;
+    border-color: #8b3a2a;
+    box-shadow: 0 0 0 2px rgba(139, 58, 42, 0.2);
+}
+
+/* AI 按鈕 */
+.ai-submit-btn {
+    width: 100%;
+    padding: 13px;
+    background: #8b3a2a;
+    border: 1px solid #c9a03d;
+    border-radius: 50px;
+    color: #f5ecd8;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin: 14px 0;
+    letter-spacing: 4px;
+}
+
+.ai-submit-btn:hover {
+    background: #9e4a38;
+    transform: translateY(-2px);
+}
+
+/* AI 回應區 - 調亮背景 */
+.ai-response {
+    background: rgba(70, 50, 35, 0.6);
+    border-left: 3px solid #c9a03d;
+    border-radius: 10px;
+    padding: 16px;
+    margin-top: 20px;
+    max-height: 260px;
+    overflow-y: auto;
+}
+
+.ai-response strong {
+    color: #e8c87a;
+    font-weight: normal;
+    letter-spacing: 1px;
+}
+
+.ai-response p {
+    color: #e0d0b0;
+    line-height: 1.7;
+    font-size: 0.85rem;
+    margin-top: 8px;
+}
+
+/* 載入動畫 */
+.spinner {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-radius: 50%;
+    border-top-color: #e8c87a;
+    animation: spin 0.8s linear infinite;
+    margin-right: 6px;
+    vertical-align: middle;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* 禪語腳印 */
+.zen-footer {
+    text-align: center;
+    margin-top: 24px;
+    padding-top: 12px;
+    border-top: 1px dashed rgba(201, 160, 61, 0.35);
+    color: rgba(200, 180, 140, 0.6);
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+}
+
+/* 響應式 */
+@media (max-width: 1100px) {
+    .result-layout {
+        flex-direction: column;
+    }
+    .lottery-area, .ai-area {
+        flex: auto;
+        width: 100%;
+    }
+    .ai-area {
+        position: static;
+        margin-top: 25px;
+    }
+    .poem-text-large {
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 700px) {
+    .result-container {
+        padding: 15px;
+    }
+    .lottery-area {
+        padding: 22px;
+    }
+    .poem-frame-center {
+        max-width: 98%;
+        padding: 22px 14px;
+    }
+    .poem-text-large {
+        font-size: 1rem;
+        line-height: 1.7;
+    }
+    .god-selector-container {
+        gap: 20px;
+    }
+    .god-option {
+        width: 140px;
+    }
+    .god-img-wrapper {
+        height: 160px;
+    }
+    .draw-select-card {
+        padding: 30px 20px;
+    }
+    .god-name-large {
+        font-size: 1.3rem;
+    }
+}
