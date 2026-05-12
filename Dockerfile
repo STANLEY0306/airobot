@@ -1,5 +1,8 @@
 FROM php:8.2-apache
 
+# 啟用 MySQL 支援 (mysqli)
+RUN docker-php-ext-install mysqli
+
 # 複製所有檔案到網頁目錄
 COPY . /var/www/html/
 
@@ -9,8 +12,5 @@ RUN echo "DirectoryIndex index.php" > /etc/apache2/conf-available/docker-index.c
 
 # 啟用 Apache 的 mod_rewrite 模組
 RUN a2enmod rewrite
-
-# 如果有用到 MySQL，請取消下一行的註解
-# RUN docker-php-ext-install mysqli
 
 EXPOSE 80
